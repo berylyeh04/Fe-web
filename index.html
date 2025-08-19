@@ -3,307 +3,82 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>貧血知識 Hub｜孕婦・嬰幼兒・小測驗</title>
-  <meta name="description" content="把孕婦貧血、嬰幼兒貧血與互動小測驗整合成一頁式官網，快速導覽、易讀、美觀。" />
+  <title>鐵定幸福｜孕產與嬰幼兒貧血專區</title>
+  <meta name="description" content="鐵定幸福：整合孕婦貧血、嬰幼兒貧血、小測驗與延伸閱讀（一頁式極簡網站）。" />
   <meta name="color-scheme" content="light dark" />
-  <meta property="og:title" content="貧血知識 Hub" />
-  <meta property="og:description" content="孕婦貧血、嬰幼兒貧血、小測驗，一頁整合。" />
+  <meta property="og:title" content="鐵定幸福｜孕產與嬰幼兒貧血專區" />
+  <meta property="og:description" content="孕婦與嬰幼兒貧血的衛教資源與互動工具，一頁整合。" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="zh_TW" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23E11D48'/%3E%3Cpath d='M50 18c10 13 17 22 17 31a17 17 0 1 1-34 0c0-9 7-18 17-31z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect rx='18' width='100' height='100' fill='%23D6B4B4'/%3E%3Cpath d='M50 18c10 13 17 22 17 31a17 17 0 1 1-34 0c0-9 7-18 17-31z' fill='white'/%3E%3C/svg%3E" />
   <style>
     :root{
-      --bg: #0b0c10;          /* 深色背景 */
-      --panel: #111317;       /* 卡片背景 */
-      --text: #e8eaed;        /* 主要文字 */
-      --muted: #A0A6AE;       /* 輔助文字 */
-      --brand: #E11D48;       /* 品牌主色（玫紅）*/
-      --brand-2: #F59E0B;     /* 輔色（琥珀）*/
-      --ok: #22C55E;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius-xl: 18px;
+      --bg: #FFF9F8;          /* 淺色背景 */
+      --panel: #ffffff;       /* 卡片背景 */
+      --text: #1F1D1D;        /* 主要文字 */
+      --muted: #6B5F5F;       /* 輔助文字 */
+      --brand: #D6B4B4;       /* 晨曦粉紅 */
+      --brand-2: #A98787;     /* 奶紅灰 */
+      --shadow: 0 10px 30px rgba(0,0,0,.12);
+      --radius: 22px;
     }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f7f7fb; --panel:#ffffff; --text:#101114; --muted:#646B76; --shadow: 0 10px 25px rgba(16,17,20,.08); }
-      .hero{ background: radial-gradient(1200px 500px at 50% -10%, #fff 0%, #f7f7fb 60%, #f1f2f6 100%); }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b0c10; --panel:#111317; --text:#e8eaed; --muted:#A0A6AE; --shadow: 0 12px 36px rgba(0,0,0,.45);}  
     }
     *{ box-sizing: border-box; }
     html,body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:var(--bg); color:var(--text); }
     a{ color:inherit; text-decoration: none; }
-    .container{ width:min(1100px, 92%); margin-inline:auto; }
-    .nav{ position: sticky; top:0; backdrop-filter: blur(8px); background: color-mix(in oklab, var(--bg) 92%, transparent); border-bottom:1px solid color-mix(in oklab, var(--text) 15%, transparent); z-index:50; }
-    .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:16px; }
-    .brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px; }
-    .brand .dot{ width:22px; height:22px; border-radius:50%; background: conic-gradient(from 220deg, var(--brand), var(--brand-2)); box-shadow: 0 0 0 6px color-mix(in oklab, var(--brand) 12%, transparent); }
-    .nav a.button{ padding:10px 14px; border-radius:12px; background: color-mix(in oklab, var(--panel) 85%, var(--brand) 15%); border:1px solid color-mix(in oklab, var(--brand) 40%, transparent); transition: .2s transform; }
-    .nav a.button:hover{ transform: translateY(-2px); }
+    .wrap{ width:min(1160px, 92%); margin-inline:auto; }
 
-    .hero{ position:relative; padding: 72px 0 40px; overflow:hidden; }
-    .hero .grid{ display:grid; grid-template-columns: 1.05fr .95fr; gap:26px; align-items:center; }
-    @media (max-width: 880px){ .hero .grid{ grid-template-columns: 1fr; } }
-    .kicker{ display:inline-flex; align-items:center; gap:10px; font-size:14px; color:var(--muted); letter-spacing:.24em; text-transform:uppercase; }
-    .kicker .pill{ background: color-mix(in oklab, var(--brand) 35%, transparent); color:white; padding:.3rem .6rem; border-radius:999px; font-weight:700; letter-spacing:.05em; }
-    h1{ font-size: clamp(28px, 3.8vw + 8px, 56px); line-height:1.06; margin:14px 0 12px; letter-spacing:-.02em; }
-    .lead{ font-size: clamp(16px, 1.2vw + 12px, 20px); color: var(--muted); max-width: 62ch; }
-    .cta{ display:flex; gap:12px; margin-top:22px; flex-wrap:wrap; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; font-weight:700; border:1px solid transparent; transition:.2s transform; }
-    .btn:hover{ transform: translateY(-1.5px); }
-    .btn.primary{ background:linear-gradient(180deg, color-mix(in oklab, var(--brand) 88%, #fff 12%), var(--brand)); color:#fff; box-shadow: var(--shadow); }
-    .btn.ghost{ background: color-mix(in oklab, var(--panel) 80%, transparent); border-color: color-mix(in oklab, var(--text) 20%, transparent); color:var(--text); }
+    /* NAV */
+    .nav{ position: sticky; top:0; z-index:40; backdrop-filter: blur(10px); background: color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent); }
+    .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.02em; }
+    .brand .dot{ width:20px; height:20px; border-radius:8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 0 0 6px color-mix(in oklab, var(--brand) 20%, transparent); }
+    .menu{ display:flex; gap:14px; flex-wrap:wrap; }
+    .menu a{ padding:8px 12px; border-radius:999px; border:1px solid color-mix(in oklab, var(--text) 10%, transparent); background:#fff; color:#111; font-weight:700; }
+    @media (prefers-color-scheme: dark){ .menu a{ background: color-mix(in oklab, #222 80%, transparent); color:#fff; border-color: color-mix(in oklab, #fff 12%, transparent);} }
 
-    .card-grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:18px; margin: 32px 0; }
-    .card{ grid-column: span 4; background: var(--panel); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius: var(--radius-xl); padding:20px; position:relative; overflow:hidden; transition: .25s transform, .25s box-shadow; }
-    .card:hover{ transform: translateY(-4px); box-shadow: var(--shadow); }
-    .card .icon{ width:46px; height:46px; display:grid; place-items:center; border-radius:14px; background: color-mix(in oklab, var(--brand) 18%, var(--panel) 82%); margin-bottom:10px; font-size:22px; }
-    .card h3{ margin:6px 0 6px; font-size:20px; }
-    .card p{ margin:0; color:var(--muted); }
-    .card a.stretch{ position:absolute; inset:0; z-index:1; }
-    @media (max-width: 1024px){ .card{ grid-column: span 6; } }
-    @media (max-width: 700px){ .card{ grid-column: span 12; } }
+    /* HERO */
+    .hero{ padding:72px 0 20px; background:
+      radial-gradient(1000px 400px at 50% 0%, #FFF9F8 0%, #FFEFEA 45%, transparent 60%),
+      linear-gradient(180deg, #fff 0%, #fff 45%, transparent 60%);
+    }
+    @media (prefers-color-scheme: dark){ .hero{ background: linear-gradient(180deg, #14161a 0%, transparent 60%);} }
+    .hero h1{ font-size: clamp(36px, 6vw, 80px); line-height:1.02; letter-spacing:-.02em; margin:0; }
+    .hero p{ margin:14px 0 0; font-size: clamp(16px, 1.4vw + 10px, 22px); color:var(--muted); max-width:70ch; }
 
-    .section{ padding: 56px 0; }
-    .section h2{ font-size: clamp(22px, 2.2vw + 8px, 34px); letter-spacing:-.01em; margin: 0 0 10px; }
-    .section .muted{ color: var(--muted); max-width: 68ch; }
-    .feature{ display:grid; grid-template-columns: .9fr 1.1fr; gap:26px; align-items:center; margin-top: 26px; }
-    .feature .panel{ background: var(--panel); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius: var(--radius-xl); padding:22px; }
-    .feature ul{ display:grid; grid-template-columns: 1fr 1fr; gap:14px 22px; list-style:none; padding:0; margin:0; }
-    .feature li{ display:flex; gap:10px; align-items:flex-start; }
-    .check{ width:24px; height:24px; border-radius:8px; background: color-mix(in oklab, var(--ok) 25%, var(--panel)); display:grid; place-items:center; flex:0 0 24px; }
+    /* MENU-IMAGE (clickable 6-grid) */
+    .menu-block{ margin: 18px 0 34px; background: var(--panel); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius: var(--radius); box-shadow: var(--shadow); padding:16px; }
+    .menu-block img{ width:100%; height:auto; display:block; border-radius: 16px; }
+    .menu-caption{ color: var(--muted); font-size:14px; margin-top:8px; text-align:center; }
 
-    .guide{ display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; margin-top: 20px; counter-reset: step; }
-    .step{ background: var(--panel); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius: var(--radius-xl); padding:18px; }
-    .step h4{ margin:0 0 6px; font-size:16px; letter-spacing:.2px; }
-    .step h4::before{ counter-increment: step; content: counter(step) ". "; color: var(--brand); font-weight:800; }
-    .step p{ margin:0; color: var(--muted); font-size:14.5px; }
-    @media (max-width: 920px){ .guide{ grid-template-columns: repeat(2, 1fr);} }
-    @media (max-width: 560px){ .feature{ grid-template-columns: 1fr; } .guide{ grid-template-columns: 1fr; } }
+    /* STRIPES */
+    .sections{ display:grid; gap:22px; margin: 36px 0 40px; }
+    .stripe{ display:grid; grid-template-columns: 1fr .9fr; gap:26px; align-items:center; padding: 26px; border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); border: 1px solid color-mix(in oklab, var(--text) 10%, transparent); }
+    .stripe:nth-child(odd){ grid-template-columns: .9fr 1fr; }
+    @media (max-width: 860px){ .stripe, .stripe:nth-child(odd){ grid-template-columns: 1fr; } }
+    .num{ font-size: clamp(28px, 4vw, 40px); font-weight:900; color: var(--brand-2); }
+    .title{ font-size: clamp(22px, 2.2vw, 32px); font-weight:900; margin: 6px 0; letter-spacing:-.01em; }
+    .desc{ color: var(--muted); margin: 0; }
+    .cta{ display:inline-flex; align-items:center; gap:10px; margin-top: 14px; padding:12px 16px; border-radius:14px; background: linear-gradient(180deg, var(--brand), var(--brand-2)); color:#fff; font-weight:800; border:1px solid color-mix(in oklab, var(--brand-2) 40%, transparent); }
+    .preview{ aspect-ratio: 16/10; border-radius: 16px; border:1px solid color-mix(in oklab, var(--text) 12%, transparent); background: color-mix(in oklab, var(--brand) 6%, #fff); display:grid; place-items:center; font-weight:700; color: color-mix(in oklab, #000 50%, var(--brand-2)); }
+    @media (prefers-color-scheme: dark){ .preview{ background: color-mix(in oklab, #fff 3%, #111317);} }
 
-    .cta-band{ margin: 26px 0 0; display:flex; gap:12px; flex-wrap:wrap; }
-
-    .faq{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top: 18px; }
-    .faq details{ background: var(--panel); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius: var(--radius-xl); padding:14px 16px; }
-    .faq summary{ cursor:pointer; font-weight:700; }
-    .faq p{ color: var(--muted); margin:.6rem 0 0; }
-    @media (max-width: 840px){ .faq{ grid-template-columns: 1fr; } }
-
-    footer{ margin: 48px 0 30px; color: var(--muted); font-size:14px; display:flex; justify-content:center; }
-
-    .tag{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; background: color-mix(in oklab, var(--brand) 14%, var(--panel) 86%); border:1px solid color-mix(in oklab, var(--brand) 25%, transparent); border-radius:999px; font-size:13px; }
+    .footer{ padding: 38px 0 50px; color: color-mix(in oklab, #000 55%, #6B5F5F); font-size:14px; text-align:center; }
+    @media (prefers-color-scheme: dark){ .footer{ color:#A0A6AE; } }
   </style>
 </head>
 <body>
   <!-- NAV -->
   <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand"><span class="dot"></span> 貧血知識 Hub</div>
-      <div class="nav-cta">
-        <a class="button" href="#explore" aria-label="探索內容">探索內容</a>
-        <a class="button" href="#resources" aria-label="Notion 資源">Notion 資源</a>
+    <div class="wrap nav-inner">
+      <div class="brand"><span class="dot"></span> 鐵定幸福</div>
+      <div class="menu">
+        <a href="#s1">孕婦貧血</a>
+        <a href="#s2">嬰幼兒貧血</a>
+        <a href="#s3">小測驗</a>
+        <a href="#s4">營養＆飲食</a>
+        <a href="#s5">資訊站</a>
+        <a href="#s6">常見問題</a>
       </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container grid">
-      <div>
-        <div class="kicker"><span class="pill">A–Z</span> 孕產與嬰幼兒貧血</div>
-        <h1>把三個分散的網站，整合成<strong>一頁式</strong>好看網站</h1>
-        <p class="lead">快速導覽孕婦貧血、嬰幼兒貧血與互動小測驗。以 <strong>卡片式區塊</strong>、<strong>清晰層次</strong>、<strong>行動按鈕</strong> 提升使用者體驗，靈感來自 siteInspire 極簡風格。</p>
-        <div class="cta">
-          <a class="btn primary" href="#explore">開始探索</a>
-          <a class="btn ghost" href="#how">如何整合</a>
-        </div>
-      </div>
-      <div>
-        <div class="panel" style="background:var(--panel); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius: var(--radius-xl); padding:20px;">
-          <div class="tag" style="margin-bottom:10px;">即將前往的重點</div>
-          <div class="card-grid" style="margin:0;">
-            <article class="card" style="grid-column: span 12; display:flex; gap:14px; align-items:center;">
-              <div class="icon" aria-hidden>🩸</div>
-              <div>
-                <h3 style="margin:0">孕婦貧血</h3>
-                <p>飲食、補充與檢查解說</p>
-              </div>
-            </article>
-            <article class="card" style="grid-column: span 6;">
-              <div class="icon" aria-hidden>👶</div>
-              <h3>嬰幼兒貧血</h3>
-              <p>風險、預防與照護</p>
-            </article>
-            <article class="card" style="grid-column: span 6;">
-              <div class="icon" aria-hidden>🧩</div>
-              <h3>互動小測驗</h3>
-              <p>5分鐘檢視你的觀念</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- EXPLORE CARDS -->
-  <section class="section" id="explore">
-    <div class="container">
-      <h2>整合重點</h2>
-      <p class="muted">三大主題用三張卡片呈現，清楚導向外部既有內容（保留原網址），同時提供次級連結與摘要，方便快速理解與點擊。</p>
-
-      <div class="card-grid">
-        <article class="card">
-          <a class="stretch" href="https://devline2025.github.io/anemia-in-pregancy/" target="_blank" rel="noopener" aria-label="前往孕婦貧血網站"></a>
-          <div class="icon" aria-hidden>🩺</div>
-          <h3>孕婦貧血</h3>
-          <p>認識孕期鐵質需求、食物來源、補充原則與檢查指標。</p>
-        </article>
-        <article class="card">
-          <a class="stretch" href="https://devline2025.github.io/anemia-in-baby/" target="_blank" rel="noopener" aria-label="前往嬰幼兒貧血網站"></a>
-          <div class="icon" aria-hidden>👶</div>
-          <h3>嬰幼兒貧血</h3>
-          <p>了解 0–3 歲營養重點、常見原因與日常照護建議。</p>
-        </article>
-        <article class="card">
-          <a class="stretch" href="https://devline2025.github.io/quiz/" target="_blank" rel="noopener" aria-label="前往小測驗"></a>
-          <div class="icon" aria-hidden>🧪</div>
-          <h3>互動小測驗</h3>
-          <p>5 分鐘自我檢測，學習重要觀念並拿到即時回饋。</p>
-        </article>
-      </div>
-
-      <div class="cta-band">
-        <a class="btn primary" href="https://devline2025.github.io/anemia-in-pregancy/" target="_blank" rel="noopener">打開孕婦貧血</a>
-        <a class="btn ghost" href="https://devline2025.github.io/anemia-in-baby/" target="_blank" rel="noopener">打開嬰幼兒貧血</a>
-        <a class="btn ghost" href="https://devline2025.github.io/quiz/" target="_blank" rel="noopener">進入小測驗</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESOURCES (Notion) -->
-  <section class="section" id="resources">
-    <div class="container">
-      <h2>教材與說明（Notion）</h2>
-      <p class="muted">三篇延伸內容整理為卡片展開。點擊在新視窗開啟 Notion 頁面，保留你原本的編排。</p>
-      <div class="card-grid">
-        <article class="card">
-          <a class="stretch" href="https://victorious-pumpkin-7e8.notion.site/223ecd06543b8032a211e783ddffcf81" target="_blank" rel="noopener" aria-label="前往 Notion 延伸說明 A"></a>
-          <div class="icon" aria-hidden>📘</div>
-          <h3>延伸說明 A</h3>
-          <p>Notion 教材頁面</p>
-        </article>
-        <article class="card">
-          <a class="stretch" href="https://victorious-pumpkin-7e8.notion.site/238ecd06543b801eaecfe7e0527b19de?source=copy_link" target="_blank" rel="noopener" aria-label="前往 Notion 延伸說明 B"></a>
-          <div class="icon" aria-hidden>🗂️</div>
-          <h3>延伸說明 B</h3>
-          <p>Notion 教材頁面</p>
-        </article>
-        <article class="card">
-          <a class="stretch" href="https://victorious-pumpkin-7e8.notion.site/238ecd06543b8084aef8c5aee1d9c9e6?source=copy_link" target="_blank" rel="noopener" aria-label="前往 Notion 延伸說明 C"></a>
-          <div class="icon" aria-hidden>📝</div>
-          <h3>延伸說明 C</h3>
-          <p>Notion 教材頁面</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW-TO SECTION -->
-  <section class="section" id="how">
-    <div class="container">
-      <h2>如何把三個網站「優雅整合」？</h2>
-      <p class="muted">保留既有 GitHub Pages 網址，只做一個 <strong>總入口（Hub）</strong>。視覺採極簡設計、清楚分塊、明顯行動按鈕。下面提供落地做法。</p>
-
-      <div class="feature">
-        <div class="panel">
-          <h3 style="margin-top:0">設計原則</h3>
-          <ul>
-            <li><span class="check">✓</span>清楚層級：<strong>Hero</strong> ▶ <strong>卡片網格</strong> ▶ <strong>功能/FAQ</strong> ▶ <strong>頁尾</strong></li>
-            <li><span class="check">✓</span>一致的按鈕與留白，<strong>行動導向</strong></li>
-            <li><span class="check">✓</span>外部內容以<strong>新視窗</strong>開啟，避免跳出主頁</li>
-            <li><span class="check">✓</span>用 <strong>CSS 變數</strong> 管理色彩，快速換色</li>
-          </ul>
-        </div>
-        <div>
-          <div class="panel">
-            <h3 style="margin-top:0">部署步驟（GitHub Pages）</h3>
-            <div class="guide">
-              <div class="step">
-                <h4>建立新倉庫</h4>
-                <p>Repo 名稱例如 <code>anemia-hub</code>，公開或私有皆可。</p>
-              </div>
-              <div class="step">
-                <h4>新增本檔 index.html</h4>
-                <p>把這個檔案存成 <code>index.html</code> 放在專案根目錄。</p>
-              </div>
-              <div class="step">
-                <h4>啟用 Pages</h4>
-                <p>Settings ▶ Pages ▶ Source 選擇 <code>Deploy from a branch</code>，分支選 <code>main</code>。</p>
-              </div>
-              <div class="step">
-                <h4>自訂網址（可選）</h4>
-                <p>在 repo 建 <code>CNAME</code> 寫入你的網域，或沿用 <code>username.github.io/anemia-hub</code>。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="feature" style="margin-top:26px;">
-        <div class="panel">
-          <h3 style="margin-top:0">可選強化（無框架）</h3>
-          <ul>
-            <li><span class="check">✓</span>加入 <strong>Google Analytics</strong>（或 Plausible）追蹤點擊</li>
-            <li><span class="check">✓</span>加上 <strong>favicon / OG 圖</strong>，利於分享與書籤</li>
-            <li><span class="check">✓</span>用 <strong>Netlify Form</strong> 或 Google 表單加上聯絡區塊</li>
-            <li><span class="check">✓</span>若要內嵌外站內容，可 iframe（同源政策允許時）</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3 style="margin-top:0">色彩主題替換</h3>
-          <p class="muted">只需修改上方 <code>:root</code> 的 CSS 變數即可。</p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
-            <span class="tag">--brand</span>
-            <span class="tag">--brand-2</span>
-            <span class="tag">--panel</span>
-            <span class="tag">--bg</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="container">
-      <h2>常見問題</h2>
-      <div class="faq">
-        <details>
-          <summary>可以把三個內容「直接嵌入」這一頁嗎？</summary>
-          <p>可以嘗試使用 <code>&lt;iframe&gt;</code> 內嵌，但需目標網頁允許。否則建議維持「摘要＋外連」做法，以保持載入速度與 SEO 乾淨。</p>
-        </details>
-        <details>
-          <summary>想加上英文版/雙語版？</summary>
-          <p>可複製本頁結構建立 <code>index-en.html</code>，或在導覽列加語言切換，連到不同頁面。</p>
-        </details>
-        <details>
-          <summary>想換成更花俏的互動效果？</summary>
-          <p>可以加入少量 JS 做滾動動畫（Intersection Observer）或微交互；若規模變大可改用 React / Next.js。</p>
-        </details>
-        <details>
-          <summary>支援深色/淺色模式嗎？</summary>
-          <p>是，已使用 <code>color-scheme</code> 與系統偏好自動調整。</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">© <span id="year"></span> 貧血知識 Hub · 由 devline2025 整合 | 資訊僅供衛教參考</div>
-  </footer>
-
-  <script>
-    // 年份
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // 平滑捲動（原生）
-    document.documentElement.style.scrollBehavior = 'smooth';
-  </script>
-</body>
-</html>
